@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عد تنازلي لرمضان 2025</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 2.5rem;
+            color: #4caf50;
+        }
+
+        .countdown {
+            font-size: 2rem;
+            margin-top: 20px;
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        .ramadan-decor {
+            margin-top: 30px;
+        }
+
+        .ramadan-decor img {
+            width: 150px;
+            height: auto;
+            margin: 10px;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #4caf50;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            font-size: 1rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>عد تنازلي لرمضان 2025</h1>
+    <div class="countdown" id="countdown"></div>
+    <div class="ramadan-decor">
+        <img src="https://img.icons8.com/ios/452/ramadan.png" alt="زينة رمضان 1">
+        <img src="https://img.icons8.com/ios/452/ramadan-crescent.png" alt="زينة رمضان 2">
+        <img src="https://img.icons8.com/ios/452/lantern.png" alt="زينة رمضان 3">
+    </div>
+    <div class="message" id="message"></div>
+    <div class="footer">
+        <p>رمضان مبارك عليكم جميعًا! <br>عام 2025</p>
+    </div>
+
+    <script>
+        // التاريخ الحالي
+        const now = new Date();
+        // تحديد بداية رمضان لعام 2025 (التاريخ التقريبي)
+        const ramadanStart = new Date('2025-03-27T00:00:00');
+
+        function updateCountdown() {
+            const currentTime = new Date();
+            const timeRemaining = ramadanStart - currentTime;
+
+            if (timeRemaining <= 0) {
+                document.getElementById('countdown').textContent = 'رمضان 2025 بدأ! رمضان كريم!';
+                document.getElementById('message').textContent = 'كل عام وأنتم بخير!';
+                return;
+            }
+
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').textContent = `${days} أيام, ${hours} ساعات, ${minutes} دقائق, ${seconds} ثواني`;
+
+            setTimeout(updateCountdown, 1000);
+        }
+
+        updateCountdown();
+    </script>
+</body>
+</html>
